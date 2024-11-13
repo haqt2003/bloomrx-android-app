@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "804567721940",
+    "project_id": "bloom-rx",
+    "storage_bucket": "bloom-rx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804567721940:android:f82fe6cedae21de195d841",
+        "android_client_info": {
+          "package_name": "com.example.bloomrx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7Gf1j32mo7c2t1S-42N70VQd7xYjb4c8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
