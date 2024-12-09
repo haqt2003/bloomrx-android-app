@@ -1,12 +1,12 @@
 package com.example.bloomrx;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,28 +14,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.bloomrx.Retrofit.WeatherApiService;
+import com.example.bloomrx.retrofit.WeatherApiService;
 import com.example.bloomrx.response.WeatherResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.gson.Gson;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Calendar;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Retrofit;
 
 public class Home extends AppCompatActivity {
 
@@ -48,9 +35,12 @@ public class Home extends AppCompatActivity {
     private TextView wind;
     private TextView rain;
     private ImageView user;
-    private ImageView camera;
+    private ImageView album;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
+
+    private static final int CAMERA_REQUEST_CODE = 100;
+    private static final int GALLERY_REQUEST_CODE = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +113,7 @@ public class Home extends AppCompatActivity {
         wind = findViewById(R.id.wind);
         rain = findViewById(R.id.rain);
         user = findViewById(R.id.user);
-        camera = findViewById(R.id.camera);
+        album = findViewById(R.id.album);
 
         date.setText(dayOfWeekName + ", " + dayOfMonth + " thg " + month);
 
@@ -138,6 +128,12 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Home.this, Profile.class);
                 startActivity(intent);
+            }
+        });
+        album.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Home.this, "ok", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -30,6 +30,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+
+    aaptOptions {
+        noCompress("tflite")
+        noCompress("lite")
+    }
+    buildFeatures {
+        mlModelBinding = true
+    }
 }
 
 dependencies {
@@ -38,9 +47,13 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("org.tensorflow:tensorflow-lite:0.0.0-nightly")
+    implementation("org.tensorflow:tensorflow-lite:2.12.0")
 }
