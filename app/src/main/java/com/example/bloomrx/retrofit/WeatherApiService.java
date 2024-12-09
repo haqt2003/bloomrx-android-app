@@ -1,4 +1,4 @@
-package com.example.bloomrx.Retrofit;
+package com.example.bloomrx.retrofit;
 
 import com.example.bloomrx.api.WeatherService;
 
